@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Base para rewrite (importante cuando está en subdirectorio)
+RewriteBase /ropaVirtual_mvc/app/admin/
+
+# Si la solicitud no es para un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# Si la solicitud no es para un directorio existente  
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirigir todo a index.php con el parámetro views
+RewriteRule ^(.*)$ index.php?views=$1 [QSA,L]

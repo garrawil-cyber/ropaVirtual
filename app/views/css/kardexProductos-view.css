@@ -1,0 +1,30 @@
+      .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .table-responsive {
+            max-height: 500px;
+        }
+        .entrada {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .salida {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .stock-actual {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .btn-confirm {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        .btn-cancel {
+            background-color: #ef4444;
+            border-color: #ef4444;
+        }
+   

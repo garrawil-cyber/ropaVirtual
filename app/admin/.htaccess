@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /ropaVirtual_mvc/app/admin/
+
+# Permitir acceso directo a archivos reales
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todo al index del admin
+RewriteRule ^(.*)$ index.php?views=$1 [L,QSA]
+

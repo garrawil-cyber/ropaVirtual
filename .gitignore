@@ -1,0 +1,68 @@
+# ============================================================
+# TIENDA VIRTUAL - GITIGNORE
+# ============================================================
+
+# Variables de entorno y configuraciones sensibles
+.env
+.env.local
+.env.*.local
+*.config.php
+config/database.local.php
+clave_acceso.txt
+
+# Dependencias
+/vendor/
+/node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+/logs/*.log
+*.log
+
+# Backups de BD y dumps
+/backups/*.sql
+/backups/*.zip
+*.sql
+*.sqlite
+*.db
+tiendaropa_base_datos.txt
+*_base_datos.txt
+
+# Cache y temporales
+/cache/
+/tmp/
+*.cache
+*.tmp
+
+# Uploads de usuarios (mantener la carpeta pero no archivos)
+/uploads/*
+!/uploads/.gitkeep
+/img/productos/*
+!/img/productos/.gitkeep
+
+# Certificados y claves
+*.pfx
+*.pem
+*.key
+*.crt
+*.p12
+
+# Composer
+/composer.lock
+
+# Archivos de pruebas
+test_*.php
+*_test.php
+*_prueba.php
+*_backup.*
+*_old.*

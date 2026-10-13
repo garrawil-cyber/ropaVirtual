@@ -1,0 +1,804 @@
+/* ============================================
+   ESTILOS DEL CHECKOUT - DISEÑO PROFESIONAL
+   ============================================ */
+:root {
+    --primary: #ff4081;
+    --primary-dark: #e91e63;
+    --secondary: #7c4dff;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --border: #dee2e6;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+.checkout-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    position: relative;
+}
+
+.checkout-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 3px;
+}
+
+.checkout-header h1 {
+    font-size: 2.2rem;
+    color: var(--dark);
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkout-header h1::before {
+    content: '🛒';
+    font-size: 2rem;
+}
+
+.btn-seguir-comprando {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-weight: 500;
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.btn-seguir-comprando:hover {
+    background: var(--light);
+    border-color: var(--primary);
+    transform: translateX(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Alertas */
+.alert {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    border-left: 4px solid;
+    box-shadow: var(--shadow);
+    background: white;
+}
+
+.alert-error {
+    background: #fff5f5;
+    border-color: var(--danger);
+    color: #991b1b;
+}
+
+.alert h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.alert li {
+    margin: 0.25rem 0;
+    position: relative;
+}
+
+.alert li::before {
+    content: '•';
+    color: var(--danger);
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+}
+
+/* Layout principal */
+.checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Formulario */
+.checkout-form-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.checkout-form-section h2 {
+    margin: 0 0 2rem 0;
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 64, 129, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Información de tarjeta */
+.tarjeta-info {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta-info h3 {
+    margin: 0 0 1rem 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Botón confirmar */
+.btn-confirmar-pedido {
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-confirmar-pedido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-confirmar-pedido:hover::before {
+    left: 100%;
+}
+
+.btn-confirmar-pedido:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-confirmar-pedido:active {
+    transform: translateY(-1px);
+}
+
+/* Resumen del pedido */
+.checkout-summary {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    height: fit-content;
+    position: sticky;
+    top: 120px;
+}
+
+.checkout-summary h2 {
+    margin: 0 0 2rem 0;
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+}
+
+.resumen-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding-right: 0.5rem;
+}
+
+.resumen-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.resumen-items::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.resumen-items::-webkit-scrollbar-thumb:hover {
+    background: var(--gray);
+}
+
+.resumen-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--light);
+    transition: var(--transition);
+}
+
+.resumen-item:hover {
+    background: var(--light);
+    margin: 0 -1rem;
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+}
+
+.resumen-item:last-child {
+    border-bottom: none;
+}
+
+.resumen-item-imagen {
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: none;
+}
+
+.resumen-item-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.resumen-item:hover .resumen-item-imagen img {
+    transform: scale(1.1);
+}
+
+.resumen-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.resumen-item-info h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--dark);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resumen-detalles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.resumen-detalles span {
+    font-size: 0.8rem;
+    color: var(--gray);
+    background: var(--light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.resumen-precio {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   TOTALES - DISEÑO CON TOTAL AMPLIADO
+   ============================================ */
+.resumen-total {
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.total-items {
+    padding: 1.5rem;
+}
+
+/* Items de subtotal y envío */
+.total-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin: 0;
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.total-item-subtotal {
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    padding-bottom: 1.25rem;
+    animation-delay: 0.1s;
+}
+
+.total-item-envio {
+    padding-top: 1.25rem;
+    animation-delay: 0.2s;
+}
+
+.total-label {
+    font-size: 1.1rem;
+    color: var(--gray);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.total-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.subtotal-value {
+    color: var(--dark);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Estilo para envío gratis */
+.envio-value {
+    display: flex;
+    align-items: center;
+}
+
+.envio-gratis-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.envio-gratis-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.envio-gratis-badge svg {
+    stroke: white;
+    width: 16px;
+    height: 16px;
+}
+
+/* Separador */
+.total-separator-line {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary) 20%, 
+        var(--primary) 80%, 
+        transparent 100%
+    );
+    margin: 1.5rem 0;
+    width: 100%;
+    opacity: 0.3;
+}
+
+/* ============================================
+   CAJA DEL TOTAL - AMPLIADA Y DESTACADA
+   ============================================ */
+.total-final-box {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 2rem;
+    margin: 1.5rem -0.5rem;
+    border: 3px solid var(--primary);
+    box-shadow: 
+        0 8px 32px rgba(255, 64, 129, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease forwards, pulseGlow 3s ease-in-out infinite;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.total-final-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    z-index: 1;
+}
+
+.total-final-box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,64,129,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.total-final-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.total-final-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.total-final-label svg {
+    stroke: var(--primary);
+}
+
+.total-final-amount {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin: 0.5rem 0;
+    text-shadow: 
+        0 2px 10px rgba(255,64,129,0.5),
+        0 4px 20px rgba(255,64,129,0.3);
+    letter-spacing: -1px;
+}
+
+.total-final-amount .total-number {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.total-currency {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 0.5rem;
+}
+
+/* Animación de resplandor */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 
+            0 8px 32px rgba(255, 64, 129, 0.25),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    50% {
+        box-shadow: 
+            0 12px 48px rgba(255, 64, 129, 0.35),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+}
+
+/* Nota de impuestos */
+.total-nota {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    animation: fadeInUp 0.4s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.total-nota svg {
+    stroke: var(--gray);
+    flex-shrink: 0;
+}
+
+/* Animaciones para totales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.total-item-subtotal .total-label {
+    animation: slideInLeft 0.5s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.total-item-subtotal .total-value {
+    animation: slideInRight 0.5s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.total-item-envio .total-label {
+    animation: slideInLeft 0.5s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.total-item-envio .total-value {
+    animation: slideInRight 0.5s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+/* Efecto hover para items */
+.total-item:not(.total-final-item):hover {
+    background-color: rgba(0,0,0,0.02);
+    border-radius: 8px;
+    margin: 0 -0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+/* ============================================
+   RESPONSIVE PARA TOTAL AMPLIADO
+   ============================================ */
+@media (max-width: 768px) {
+    .total-items {
+        padding: 1.25rem;
+    }
+    
+    .total-final-box {
+        padding: 1.5rem;
+        margin: 1rem -0.25rem;
+    }
+    
+    .total-final-amount {
+        font-size: 2.8rem;
+    }
+    
+    .total-final-label {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .total-label {
+        font-size: 1rem;
+    }
+    
+    .total-value {
+        font-size: 1.1rem;
+    }
+    
+    .subtotal-value {
+        font-size: 1.2rem;
+    }
+    
+    .envio-gratis-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .total-item {
+        padding: 0.8rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .total-items {
+        padding: 1rem;
+    }
+    
+    .total-final-box {
+        padding: 1.25rem;
+    }
+    
+    .total-final-amount {
+        font-size: 2.4rem;
+    }
+    
+    .total-final-label {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .total-nota {
+        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+/* Asegurar que los elementos ocupen todo el ancho disponible */
+.total-item {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.total-item > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.total-label {
+    flex: 1;
+    text-align: left;
+}
+
+.total-value {
+    flex: 1;
+    text-align: right;
+}
